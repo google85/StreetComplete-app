@@ -18,7 +18,7 @@ jobs:
 
     - name: Applying custom patch
       env:
-        APP_VERSION: "12.34#$(TZ=':Europe/Bucharest' date +'%Y%m%d')"           #
+        APP_VERSION: "12.34#{{ $(TZ=':Europe/Bucharest' date +'%Y%m%d') }}"           #
         APP_VERCODE: 1234              #
       run: |
         chmod +x ./.patch/prebuild*.sh   &&  \
