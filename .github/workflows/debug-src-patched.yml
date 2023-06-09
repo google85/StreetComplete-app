@@ -17,10 +17,9 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Applying custom patch
-#      working-directory: ./app
       env:
-        APP_VERSION: "53.1"           #
-        APP_VERCODE: 5302             #
+        APP_VERSION: "12.34"           #
+        APP_VERCODE: 1234              #
       run: |
         chmod +x ./.patch/prebuild*.sh   &&  \
         ./.patch/prebuild-only-rename.sh "$APP_VERSION" "$APP_VERCODE"
