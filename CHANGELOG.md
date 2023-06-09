@@ -8,3 +8,4 @@
     - [DONE] added `.patch` folder for applying renames, etc
     - [DONE] added debug Github workflow to see src folder after applying patch
     - [DONE] applying patch to debug apk
+    - added cat of build.gradle content in debug workflow

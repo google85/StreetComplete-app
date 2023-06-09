@@ -34,7 +34,7 @@ jobs:
 
     - name: Applying custom patch
       env:
-        APP_VERSION: "53.1"           #
+        APP_VERSION: "53.1#${{ env.DATE_LAST_BUILD }}"           #
         APP_VERCODE: 5302             #
       run: |
         chmod +x ./.patch/prebuild*.sh   &&  \
