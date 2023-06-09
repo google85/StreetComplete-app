@@ -25,9 +25,6 @@ jobs:
         chmod +x ./.patch/prebuild*.sh   &&  \
         ./.patch/prebuild-only-rename.sh "$APP_VERSION" "$APP_VERCODE"
 
-    - name: Rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/StreetComplete-debug-$(git log -n 1 --format='%h').apk
-
     - name: Upload src as artifact
       uses: actions/upload-artifact@v3
       with:

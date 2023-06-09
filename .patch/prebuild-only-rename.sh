@@ -28,9 +28,9 @@ android_dir="$script_dir"
 app_dir="$android_dir/app"
 #stubs_dir="$android_dir/.patch/stubs"
 
-ls -al $android_dir
-echo "APP DIR: $app_dir"
-ls -al $app_dir
+#ls -al $android_dir
+#echo "APP DIR: $app_dir"
+#ls -al $app_dir
 
 # BUILD: Add enough memory for the build on FDroid
 #echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=4096m" \
