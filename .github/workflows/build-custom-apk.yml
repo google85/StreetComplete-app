@@ -62,6 +62,6 @@ jobs:
     - name: Archive APK (Upload artifact)
       uses: actions/upload-artifact@v3
       with:
-        name: custom-apk-debug-${{ github.run_number }}      # .zip will be added
+        name: custom-streetcomplete-apk-debug-${{ github.run_number }}      # .zip will be added
         path: app/build/outputs/apk/*/*.apk
         retention-days: 30
