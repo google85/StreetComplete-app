@@ -1,0 +1,36 @@
+name: Debug src patched as artifact
+
+on:
+  push:
+    branches: [ "custom-apk" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Pack src as zip
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v3
+
+    - name: Applying custom patch
+#      working-directory: ./app
+      env:
+        APP_VERSION: "53.1"           #
+        APP_VERCODE: 5302             #
+      run: |
+        chmod +x ./.patch/prebuild*.sh   &&  \
+        ./.patch/prebuild-only-rename.sh "$APP_VERSION" "$APP_VERCODE"
+
+    - name: Rename APK
+      run: mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/StreetComplete-debug-$(git log -n 1 --format='%h').apk
+
+    - name: Upload src as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: debug-src-${{ github.run_number }}      # .zip will be added
+        path: ./
+        retention-days: 3
