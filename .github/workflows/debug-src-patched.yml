@@ -23,13 +23,13 @@ jobs:
 
     - name: Applying custom patch
       env:
-        APP_VERSION: "12.34#${{ env.DATE_LAST_BUILD }}"           #
-        APP_VERCODE: 1234              #
+        APP_VERSION: "12.34#${{ env.DATE_LAST_BUILD }}"
+        APP_VERCODE: 1234
       run: |
         chmod +x ./.patch/prebuild*.sh   &&  \
         ./.patch/prebuild-only-rename.sh "$APP_VERSION" "$APP_VERCODE"
 
-    - name: Cat build.gradle.kts
+    - name: Cat content of build.gradle.kts
       run: |
         cat app/build.gradle.kts
 
