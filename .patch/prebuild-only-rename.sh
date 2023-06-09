@@ -16,7 +16,8 @@ set -e
 
 # Always start from the directory this script is in
 
-script_dir="$(dirname -- "$( readlink -f -- "$0"; )")";
+#script_dir="$(dirname -- "$( readlink -f -- "$0"; )")";
+script_dir="$PWD";
 #script_dir="$(dirname $PWD)";
 
 echo "SCRIPT DIR: $script_dir"
@@ -27,8 +28,9 @@ android_dir="$script_dir"
 app_dir="$android_dir/app"
 #stubs_dir="$android_dir/.patch/stubs"
 
-echo "APP DIR: $app_dir"
 ls -al $android_dir
+echo "APP DIR: $app_dir"
+ls -al $app_dir
 
 # BUILD: Add enough memory for the build on FDroid
 #echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=4096m" \
