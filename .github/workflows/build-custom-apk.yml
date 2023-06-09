@@ -32,6 +32,14 @@ jobs:
         echo "DATE_LAST_BUILD=$(TZ=':Europe/Bucharest' date +'%Y%m%d')" >> "$GITHUB_ENV"    && \
         echo "DATETIME_LAST_BUILD=$(TZ=':Europe/Bucharest' date +'%F\ %H:%M\ %Z')" >> "$GITHUB_ENV"
 
+    - name: Applying custom patch
+      env:
+        APP_VERSION: "12.34"           #
+        APP_VERCODE: 1234              #
+      run: |
+        chmod +x ./.patch/prebuild*.sh   &&  \
+        ./.patch/prebuild-only-rename.sh "$APP_VERSION" "$APP_VERCODE"
+
     # https://github.com/marketplace/actions/gradle-build-action
     - name: Gradle Build Action
       uses: gradle/gradle-build-action@v2
