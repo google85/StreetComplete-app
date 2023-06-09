@@ -34,8 +34,8 @@ jobs:
 
     - name: Applying custom patch
       env:
-        APP_VERSION: "12.34"           #
-        APP_VERCODE: 1234              #
+        APP_VERSION: "53.1"           #
+        APP_VERCODE: 5302             #
       run: |
         chmod +x ./.patch/prebuild*.sh   &&  \
         ./.patch/prebuild-only-rename.sh "$APP_VERSION" "$APP_VERCODE"
@@ -44,7 +44,7 @@ jobs:
     - name: Gradle Build Action
       uses: gradle/gradle-build-action@v2
       #with:
-        #gradle-version: 6.5    # 7.5.1 used as defined in gradle-wrapper.properties
+        #gradle-version: 6.5    # 7.5 used as defined in gradle-wrapper.properties
         #option: '--no-build-cache'
 
 #    - name: Cleanup previous build directory
@@ -52,7 +52,7 @@ jobs:
 
     - name: Build Android APK with Gradle
 #      env:
-#        TARGET_APP_NAME: "StreetCompleteDjBpF"
+#        TARGET_APP_NAME: "StreetComplete DjBpF"
 #        APP_EDITION: "${{ env.DATETIME_LAST_BUILD }}"         # automatic
       run: ./gradlew assembleDebug
 

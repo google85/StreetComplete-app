@@ -7,4 +7,4 @@
     - added '.vscode' folder for .kts files association
     - [DONE] added `.patch` folder for applying renames, etc
     - [DONE] added debug Github workflow to see src folder after applying patch
-    - [PENDING] applying patch to debug apk
+    - [DONE] applying patch to debug apk
