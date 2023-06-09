@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Run with: ./prebuild.sh "4.2.7" "4207"
+# Run with: ./prebuild.sh "53.1" "5302"
 
 # Arguments: the patch script variables:
 #  * $$VERSION$$
@@ -32,25 +32,19 @@ app_dir="$android_dir/app"
 #    >> "$android_dir/gradle.properties"
 
 # BUILD: Sub in the right build information (version/appname)
-#sed -i \
-#    -e "s/System.getenv(\"APK_VERSION\")/\"$version\"/g" \
-#    "$app_dir/build.gradle"
 sed -i \
-    -e "s/versionName = "53\.1"/versionName = \"$version\"/g" \
+    -r "s/versionName = \"([0-9\.]{4})\"/versionName = \"$version\"/" \
     "$app_dir/build.gradle.kts"
 sed -i \
-    -e "s/versionCode = 5302/versionCode = $vercode/g" \
+    -r "s/versionCode = ([0-9]{4})/versionCode = $vercode/" \
     "$app_dir/build.gradle.kts"
-#sed -i \
-#    -e "s/System.getenv(\"TARGET_APP_NAME\")/\"$appName\"/g" \
-#    "$app_dir/build.gradle"
 #sed -i \
 #    -e "s/\"OsmAnd Nightly\"/\"$appName\"/g" \
 #    "$app_dir/build.gradle"
 
 # also rename package
 sed -i \
-    -e "s/\"de.westnordost.streetcomplete\"/\"de.westnordost.streetcomplete.djbpf\"/g" \
+    -e "s/applicationId = \"de.westnordost.streetcomplete\"/applicationId = \"de.westnordost.streetcomplete.djbpf\"/g" \
     "$app_dir/build.gradle.kts"
 
 # return from whence we came (just in case)

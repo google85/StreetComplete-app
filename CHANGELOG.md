@@ -6,4 +6,4 @@
     - [DONE] first apk artifact!
     - added '.vscode' folder for .kts files association
     - [DONE] added `.patch` folder for applying renames, etc
-    - [PENDING] added debug Github workflow to see src folder after applying patch
+    - [DONE] added debug Github workflow to see src folder after applying patch
