@@ -28,6 +28,7 @@ jobs:
     - name: Upload src as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: debug-src-${{ github.run_number }}      # .zip will be added
-        path: ./
+        name: debug-src-only-buildgradle-${{ github.run_number }}      # .zip will be added
+        path: app/build.gradle.kts
+        #path: ./
         retention-days: 3

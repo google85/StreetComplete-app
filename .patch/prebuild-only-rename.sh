@@ -9,16 +9,15 @@
 version=$1
 vercode=$2
 
-appName="OsmAndDjBpF"
+appName="StreetComplete DjBpF"
 
 # Fail on any error
 set -e
 
 # Always start from the directory this script is in
 
-#script_dir="$(dirname -- "$( readlink -f -- "$0"; )")";
 script_dir="$PWD";
-#script_dir="$(dirname $PWD)";
+#script_dir="$(dirname -- "$( readlink -f -- "$0"; )")";
 
 echo "SCRIPT DIR: $script_dir"
 
@@ -28,10 +27,6 @@ android_dir="$script_dir"
 app_dir="$android_dir/app"
 #stubs_dir="$android_dir/.patch/stubs"
 
-#ls -al $android_dir
-#echo "APP DIR: $app_dir"
-#ls -al $app_dir
-
 # BUILD: Add enough memory for the build on FDroid
 #echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=4096m" \
 #    >> "$android_dir/gradle.properties"
@@ -40,9 +35,12 @@ app_dir="$android_dir/app"
 #sed -i \
 #    -e "s/System.getenv(\"APK_VERSION\")/\"$version\"/g" \
 #    "$app_dir/build.gradle"
-#sed -i \
-#    -e "s/System.getenv(\"APK_NUMBER_VERSION\")/\"$vercode\"/g" \
-#    "$app_dir/build.gradle"
+sed -i \
+    -e "s/versionName = "53\.1"/versionName = \"$version\"/g" \
+    "$app_dir/build.gradle.kts"
+sed -i \
+    -e "s/versionCode = 5302/versionCode = $vercode/g" \
+    "$app_dir/build.gradle.kts"
 #sed -i \
 #    -e "s/System.getenv(\"TARGET_APP_NAME\")/\"$appName\"/g" \
 #    "$app_dir/build.gradle"
