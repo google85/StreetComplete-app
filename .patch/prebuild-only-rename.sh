@@ -16,8 +16,8 @@ set -e
 
 # Always start from the directory this script is in
 
-#script_dir="$(dirname -- "$( readlink -f -- "$0"; )")";
-script_dir="$(dirname $PWD)";
+script_dir="$(dirname -- "$( readlink -f -- "$0"; )")";
+#script_dir="$(dirname $PWD)";
 
 echo "SCRIPT DIR: $script_dir"
 
