@@ -48,9 +48,9 @@ app_dir="$android_dir/app"
 #    "$app_dir/build.gradle"
 
 # also rename package
-#sed -i \
-#    -e "s/\"net.osmand.dev\"/\"net.osmand.djbpf\"/g" \
-#    "$osmand_dir/build.gradle"
+sed -i \
+    -e "s/\"de.westnordost.streetcomplete\"/\"de.westnordost.streetcomplete.djbpf\"/g" \
+    "$osmand_dir/build.gradle.kts"
 
 # return from whence we came (just in case)
 popd
